@@ -12,4 +12,4 @@ public class CircleCalc {
         System.out.printf("Area = %.2f, Circumferernce = %.2f, Random Radius = %d\n", area, circumference, randomRadius);
     } 
 }
-
+//
