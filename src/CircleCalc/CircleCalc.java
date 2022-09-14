@@ -1,6 +1,7 @@
 package CircleCalc;
 import java.util.Random;
-public class CircleCalc {
+public class CircleCalc 
+{
     public static void main(String[] args)
     {
         Random random = new Random();
