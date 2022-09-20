@@ -2,7 +2,6 @@ package webpagebuilder;
 
 import java.util.Scanner;
 
-
 public class WebPageBuilder 
 {
     public static void main(String[] args)
