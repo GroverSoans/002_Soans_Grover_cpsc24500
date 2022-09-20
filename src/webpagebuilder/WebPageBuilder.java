@@ -17,12 +17,12 @@ public class WebPageBuilder
         System.out.println("each question, and I'll populate your new webpage");
         System.out.println("with your responses.\n");
 
-        System.out.printf("What is your name? \n");
+        System.out.println("What is your name? ");
         String name = sc.nextLine();
-        System.out.printf("How old are you? \n");
+        System.out.println("How old are you? ");
         int age = sc.nextInt();
         sc.nextLine();
-        System.out.printf("Where do you live? \n");
+        System.out.println("Where do you live? ");
         String location = sc.nextLine();
         System.out.println("When you grow up, you want to be ... ");
         String future = sc.nextLine();
