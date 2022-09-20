@@ -11,11 +11,11 @@ public class WebPageBuilder
 
         System.out.println("*****************************************************");
         System.out.printf("                WEBPAGE BUILDER V1.0\n");
-        System.out.println("*****************************************************\n\n");
+        System.out.println("*****************************************************\n");
         System.out.println("This application helps you build a basic web page");
         System.out.println("by asking you a series of questions. Just answer ");
         System.out.println("each question, and I'll populate your new webpage");
-        System.out.println("with your responses.");
+        System.out.println("with your responses.\n");
 
         System.out.printf("What is your name? \n");
         String name = sc.nextLine();
