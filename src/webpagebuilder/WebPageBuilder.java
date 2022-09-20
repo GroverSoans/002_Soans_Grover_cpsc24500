@@ -10,7 +10,7 @@ public class WebPageBuilder
         Scanner sc = new Scanner(System.in);
 
         System.out.println("*****************************************************");
-        System.out.printf("WEBPAGE BUILDER V1.0\n");
+        System.out.printf("                WEBPAGE BUILDER V1.0\n");
         System.out.println("*****************************************************\n\n");
         System.out.println("This application helps you build a basic web page");
         System.out.println("by asking you a series of questions. Just answer ");
@@ -31,8 +31,6 @@ public class WebPageBuilder
         int num1 = sc.nextInt();
         int num2 = sc.nextInt();
         double quotient = (double)num1 / num2;
-
-
 
         System.out.println("Here is the code for your web page: ");
         System.out.println("<html>");
