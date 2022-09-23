@@ -9,6 +9,35 @@ public class StarlightCoffee {
         System.out.println("STARLIGHT COFFEE POINT-OF-SALE SYSTEM");
         System.out.println("*************************************\n");
     }
+
+    public static double calcCost(int type,int s,int shots,String mem)
+    {   
+        double totalCost=0;
+        if (type == 1){
+            totalCost = 2.25;
+        }   else if (type == 2){
+            totalCost = 2.75;
+        }   else if (type == 3){
+            totalCost = 3.50;
+        }   else {
+            totalCost = 3.75;
+        }
+
+        if (s == 3){
+            totalCost = totalCost * 1.4;
+        }   else if (s == 2){
+            totalCost = totalCost * 1.2;
+        }
+
+        totalCost = totalCost + .5 * shots;
+        
+        if (mem.equalsIgnoreCase("y")){
+            totalCost = totalCost * .9;
+        }
+
+
+        return totalCost;
+    }
     public static void main(String[] args)
     {
         printHeading();
@@ -33,8 +62,12 @@ public class StarlightCoffee {
         System.out.print("\nAre you a member of Starlight Stars (y or n)? ");
         String starMem = input.nextLine();
 
-        System.out.printf("%s %d %d %d %s", name, coffee, size, extraShots, starMem);
+        double total = calcCost(coffee,size,extraShots,starMem);
 
+
+
+        System.out.printf("%s %d %d %d %s", name, coffee, size, extraShots, starMem);
+        System.out.printf(".2f", total);
     }
     
 }
