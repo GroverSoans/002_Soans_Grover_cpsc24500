@@ -11,13 +11,20 @@ public class StarlightCoffee {
     }
 
     public static void printBill(String name,double bev,double dis,double tip,double tax,double total)
-    {   
+    {
+        System.out.printf("Here is your bill, %s\n",name);
 
+        System.out.printf("Beverage       $ %.2f\n",bev);
+        System.out.printf("Club Discount  $ %.2f\n",dis);
+        System.out.printf("Tip Amount     $ %.2f\n",tip);
+        System.out.printf("Taxes          $ %.2f\n",tax);
+        System.out.printf("Total          $ %.2f\n",total);
 
+        System.out.println("\nThank you for choosing Starlight Coffee!");
 
     }
 
-    public static double calcCost(int type,int s,int shots,String mem, int tip)
+    public static void calcCost(String n,int type,int s,int shots,String mem, int tip)
     {   
         double totalCost=0;
         if (type == 1){
@@ -39,7 +46,7 @@ public class StarlightCoffee {
         totalCost = totalCost + .5 * shots;
 
         double costOfCoffee = totalCost;
-        double discount;
+        double discount=0;
         double tipAm;
         double tax;
         
@@ -63,9 +70,8 @@ public class StarlightCoffee {
         totalCost= totalCost + tax;
         
 
-        printBill(costOfCoffee,discount,tipAm,tax,totalCost);
+        printBill(n,costOfCoffee,discount,tipAm,tax,totalCost);
 
-        return totalCost;
     }
     public static void main(String[] args)
     {
@@ -96,13 +102,6 @@ public class StarlightCoffee {
         System.out.print("Enter the number of your choice: ");
         int tip = input.nextInt();
 
-        printBill(name);
-        calcCost(coffee,size,extraShots,starMem,tip);
-
-
-
-        System.out.printf("%s %d %d %d %s\n", name, coffee, size, extraShots, starMem);
-        System.out.printf("%.2f", total);
-    }
-    
+        calcCost(name,coffee,size,extraShots,starMem,tip);
+    }   
 }
