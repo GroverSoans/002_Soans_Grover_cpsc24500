@@ -10,7 +10,14 @@ public class StarlightCoffee {
         System.out.println("*************************************\n");
     }
 
-    public static double calcCost(int type,int s,int shots,String mem)
+    public static void printBill(String name,double bev,double dis,double tip,double tax,double total)
+    {   
+
+
+
+    }
+
+    public static double calcCost(int type,int s,int shots,String mem, int tip)
     {   
         double totalCost=0;
         if (type == 1){
@@ -30,11 +37,33 @@ public class StarlightCoffee {
         }
 
         totalCost = totalCost + .5 * shots;
+
+        double costOfCoffee = totalCost;
+        double discount;
+        double tipAm;
+        double tax;
         
         if (mem.equalsIgnoreCase("y")){
+            discount = totalCost * .1;
             totalCost = totalCost * .9;
         }
 
+        if (tip == 1){
+            tipAm = totalCost * .1;
+            totalCost = tipAm + totalCost;
+        }   else if (tip == 2){
+            tipAm = totalCost * .15;
+            totalCost = tipAm + totalCost;
+        }   else {
+            tipAm = totalCost * .20;
+            totalCost = tipAm + totalCost;
+        }
+
+        tax = totalCost *.0875;
+        totalCost= totalCost + tax;
+        
+
+        printBill(costOfCoffee,discount,tipAm,tax,totalCost);
 
         return totalCost;
     }
@@ -55,19 +84,25 @@ public class StarlightCoffee {
         System.out.print("Enter the number of your choice: ");
         int size = input.nextInt();
 
-        System.out.print("\nHow many extra shots of expresso would you like?");
+        System.out.print("\nHow many extra shots of expresso would you like? ");
         int extraShots = input.nextInt();
         input.nextLine();
 
         System.out.print("\nAre you a member of Starlight Stars (y or n)? ");
         String starMem = input.nextLine();
 
-        double total = calcCost(coffee,size,extraShots,starMem);
+        System.out.print("\nWhat size tip would you like to leave? ");
+        System.out.print("\n1. Good service - 10%\n2. Great service - 15%\n3. Outstanding service - 20%\n");
+        System.out.print("Enter the number of your choice: ");
+        int tip = input.nextInt();
+
+        printBill(name);
+        calcCost(coffee,size,extraShots,starMem,tip);
 
 
 
-        System.out.printf("%s %d %d %d %s", name, coffee, size, extraShots, starMem);
-        System.out.printf(".2f", total);
+        System.out.printf("%s %d %d %d %s\n", name, coffee, size, extraShots, starMem);
+        System.out.printf("%.2f", total);
     }
     
 }
