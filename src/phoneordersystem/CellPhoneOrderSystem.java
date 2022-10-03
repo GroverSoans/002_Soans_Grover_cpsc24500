@@ -32,6 +32,7 @@ public class CellPhoneOrderSystem {
     }
     public static void main(String[] args){
         printHeading(); 
+        
         Scanner input = new Scanner(System.in);
         int numPhones;
         System.out.print("\nHow many phones will you purchase? ");
