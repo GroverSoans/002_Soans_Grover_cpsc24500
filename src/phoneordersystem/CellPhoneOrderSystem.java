@@ -56,19 +56,17 @@ public class CellPhoneOrderSystem {
             System.out.printf("\nLet's Configure Phone #%d",i+1);
             System.out.print("\nEnter A for Android or I for IPhone: ");
             phoneType = input.nextLine();
-            System.out.print("\nWhat size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
-            screenSize = input.nextInt();
-            System.out.print("\nHow much RAM? Enter 64, 128, or 256: ");
-            ram = input.nextInt();
-            input.nextLine();
-            
+
             if(phoneType.equalsIgnoreCase("A")){//andoid or apple
                 phone = "Android ";
                 phoneTotal = 799.00;
-            } else {
+            } else if(phoneType.equalsIgnoreCase("I")){
                 phone= "IPhone "; 
                 phoneTotal = 849.00;          
             }
+
+            System.out.print("\nWhat size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
+            screenSize = input.nextInt();
             
             if(screenSize == 1){//screen size
                 phone = phone + "5.6\" ";
@@ -79,6 +77,10 @@ public class CellPhoneOrderSystem {
                 phone = phone + "6.7\" ";
                 phoneTotal = phoneTotal * 1.4;
             }
+
+            System.out.print("\nHow much RAM? Enter 64, 128, or 256: ");
+            ram = input.nextInt();
+            input.nextLine();
 
             if(ram == 64){//memory size
                 phone = phone + "64GB "; 
@@ -92,7 +94,9 @@ public class CellPhoneOrderSystem {
 
             do{// do while loop to add accessories to phone order
                 printChoices();
+                
                 choice = input.nextLine();
+                
                 if (choice.equalsIgnoreCase("c")){
                     phone = phone + "/ case ";
                     phoneTotal = phoneTotal + 49;
@@ -112,7 +116,7 @@ public class CellPhoneOrderSystem {
                     doAgain = "y";
                 } else if (choice.equalsIgnoreCase("f")){
                     doAgain = "n";
-                }               
+                } 
 
             }while(doAgain.equalsIgnoreCase("y"));
 
