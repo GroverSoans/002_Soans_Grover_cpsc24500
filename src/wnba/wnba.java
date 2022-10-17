@@ -42,9 +42,48 @@ public class wnba {
                 System.out.printf("%-20s %16d %8d %8.3f %8.1f\n", team, wins, loss, pct, gb);  
             }
         }
-        System.out.println("\n");
+        System.out.print("\n");
     }
-    
+    public static void conferenceSort(String eastern[],String western[]){
+        String[] combined = new String[12];
+        String[] partsW = new String[2];
+        String[] partsE = new String[2];
+        int lossW, lossE; 
+        int i = 0, j = 0;
+        int ctr = 0;
+
+        while (i < western.length && j < eastern.length){
+            partsW = western[i].split("\t");
+            partsE = eastern[j].split("\t");
+            lossW = Integer.parseInt(partsW[2]);
+            lossE = Integer.parseInt(partsE[2]);
+
+            if(lossW < lossE){
+                combined[ctr] = western[i];
+                i++;
+                ctr++;
+            }else if (lossE < lossW){
+                combined[ctr] = eastern[j];
+                j++;
+                ctr++;  
+            }else if (lossE == lossW){
+                combined[ctr] = eastern[j];
+                j++;
+                ctr++;
+                combined[ctr] = western[i];
+                i++;
+                ctr++;
+            }
+        }
+        while (i < western.length){
+            combined[ctr++] = western[i++];
+        }
+        while(j < eastern.length){
+            combined[ctr++] = eastern[j++];
+        }
+
+        printResults(combined);
+    }  
     public static void main(String[] args) {
         heading();
         Scanner sc = new Scanner(System.in);
@@ -61,8 +100,7 @@ public class wnba {
             Scanner fsc = new Scanner(new File(fileName));    
             while (fsc.hasNextLine()){
                 line = fsc.nextLine();
-                league.add(line);
-                //System.out.println(line);   
+                league.add(line);   
             }    
         } catch (Exception ex){
             System.out.println("A problem happened reading from the file");
@@ -84,6 +122,8 @@ public class wnba {
             }
         }
 
+        
+
         System.out.println("The teams have been read.");
         int choice = 0;
         while(choice != 4){
@@ -97,22 +137,11 @@ public class wnba {
                 printResults(western);
             } else if (choice == 3){
                 System.out.println("Combined Conference Standings");
-                //printResults();
+                conferenceSort(eastern,western);
             }else{
                 break;
             }
         }
-   
-        
-        //System.out.println(league);
-      
-
-        /*for (int num=0; num < eastern.length; num++){
-            System.out.println(eastern[num]);  
-        }
-        for (int num=0; num < western.length; num++){
-            System.out.println(western[num]);
-        }*/
-
+        sc.close();
     }
 }
