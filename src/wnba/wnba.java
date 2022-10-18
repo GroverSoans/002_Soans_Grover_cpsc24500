@@ -145,7 +145,7 @@ public class wnba {
                     System.out.println("\nStandings for the Western Conference");
                     printResults(western);
                 } else if (choice == 3){
-                    System.out.println("Combined Conference Standings");
+                    System.out.println("\nCombined Conference Standings");
                     conferenceSort(eastern,western);
                 }else{
                     break;
