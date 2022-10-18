@@ -2,7 +2,7 @@ package wnba;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
-///Users/groversoans/Downloads/wnba.txt
+
 public class wnba {
     public static void heading(){ //function to print heading
         System.out.println("***************************************************");
