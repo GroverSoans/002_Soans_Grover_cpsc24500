@@ -147,8 +147,8 @@ public class wnba {
                 } else if (choice == 3){
                     System.out.println("\nCombined Conference Standings");
                     conferenceSort(eastern,western);
-                }else{
-                    break;
+                } else{
+                    throw new Exception("\nThat is an invalid choice\n");
                 }
             } catch (Exception e){
                 System.out.println("\nThat is an invalid choice\n");
