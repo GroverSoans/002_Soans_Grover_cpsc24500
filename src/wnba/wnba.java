@@ -57,6 +57,8 @@ public class wnba {
             partsE = eastern[j].split("\t");
             lossW = Integer.parseInt(partsW[2]);
             lossE = Integer.parseInt(partsE[2]);
+            
+            //sorts array by comparing losses from each conference
 
             if(lossW < lossE){
                 combined[ctr] = western[i];
@@ -81,7 +83,6 @@ public class wnba {
         while(j < eastern.length){
             combined[ctr++] = eastern[j++];
         }
-
         printResults(combined);
     }  
     public static void main(String[] args) {
@@ -126,22 +127,27 @@ public class wnba {
 
         System.out.println("The teams have been read.");
         int choice = 0;
-        while(choice != 4){
-            menu();
-            choice = sc.nextInt();
-            if (choice == 1){
-                System.out.println("\nStandings for the Eastern Conference");
-                printResults(eastern);
-            } else if (choice == 2){
-                System.out.println("\nStandings for the Western Conference");
-                printResults(western);
-            } else if (choice == 3){
-                System.out.println("Combined Conference Standings");
-                conferenceSort(eastern,western);
-            }else{
-                break;
+        do{
+            try{
+                menu();
+                choice = sc.nextInt();
+                if (choice == 1){
+                    System.out.println("\nStandings for the Eastern Conference");
+                    printResults(eastern);
+                } else if (choice == 2){
+                    System.out.println("\nStandings for the Western Conference");
+                    printResults(western);
+                } else if (choice == 3){
+                    System.out.println("Combined Conference Standings");
+                    conferenceSort(eastern,western);
+                }else{
+                    break;
+                }
+            } catch (Exception e){
+                System.out.println("That is an invalid choice");
+                sc.nextLine();
             }
-        }
+        } while(choice != 4);
         sc.close();
     }
 }
