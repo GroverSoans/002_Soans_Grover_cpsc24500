@@ -3,10 +3,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
 
-public class wnba {
+public class Wnba {
     public static void heading(){ //function to print heading
         System.out.println("***************************************************");
-        System.out.println("               2022 WMBA STANDINGS");
+        System.out.println("               2022 WNBA STANDINGS");
         System.out.println("***************************************************");
     }
     public static void menu(){ //function to print menu
