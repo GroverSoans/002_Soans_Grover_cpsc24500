@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class WordFileReader {
+    
     public static LinkedHashMap<String,ArrayList<String>> fileReader(String fileName){
         LinkedHashMap<String, ArrayList<String>> dictionary = new LinkedHashMap<String, ArrayList<String>>();
         ArrayList<String> noun = new ArrayList<String>();
@@ -36,6 +37,7 @@ public class WordFileReader {
                     verb.add(word);
                 }  
             }
+            fsc.close();
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
         } 
