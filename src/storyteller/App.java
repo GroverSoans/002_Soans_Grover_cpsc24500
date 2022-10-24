@@ -1,4 +1,6 @@
 package storyteller;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import java.util.Scanner;
 ///Users/groversoans/Downloads/wordlist.txt
@@ -20,7 +22,8 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the name of the file: ");
         String fileName = sc.nextLine();
-        WordFileReader.fileReader(fileName);    
+        LinkedHashMap <String, ArrayList<String>> words= WordFileReader.fileReader(fileName); 
+        Author authObj = new Author(words);   
     }
     
 }

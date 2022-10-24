@@ -1,18 +1,20 @@
 package storyteller;
-
+import java.util.ArrayList;
 import java.util.Random;
-
-import javax.swing.event.SwingPropertyChangeSupport;
+import java.util.LinkedHashMap;
 
 public class Author {
     private int adjFreq;
     private int advFreq;
     private int prepFreq;
-    WordFileReader f = new WordFileReader();
-    public static String getWord(f.dictionary){
+    private LinkedHashMap<String, ArrayList<String>> words;
+
+    public Author(LinkedHashMap<String, ArrayList<String>> words) {
+        this.words = words;
+    }
+    public static String getWord(){
 
     }
-
     
 
     public int getAdjFreq() {
