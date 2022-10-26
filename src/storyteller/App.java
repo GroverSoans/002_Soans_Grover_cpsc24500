@@ -5,8 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 ///Users/groversoans/Downloads/wordlist.txt
 public class App {
-    private static void printHeading(){
-        System.out.println("****************************************************");
+    private static void printHeading(){System.out.println("****************************************************");
         System.out.println("                  STORYTELLER V1.0");
         System.out.println("****************************************************\n");
 
@@ -17,7 +16,9 @@ public class App {
         System.out.println("changing how frequently adjectives, adverbs, and");
         System.out.println("prepositions should be included.\n");
     }
+        
     public static void main(String[] args) {
+        
         printHeading();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the name of the file: ");

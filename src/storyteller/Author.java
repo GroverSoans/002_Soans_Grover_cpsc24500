@@ -12,9 +12,9 @@ public class Author {
     public Author(LinkedHashMap<String, ArrayList<String>> words) {
         this.words = words;
     }
-    public static String getWord(){
+    //public static String getWord(){
 
-    }
+    //}
     
 
     public int getAdjFreq() {
@@ -53,6 +53,7 @@ public class Author {
             this.prepFreq = prepFreq;
         }   
     }
+
     
 
 

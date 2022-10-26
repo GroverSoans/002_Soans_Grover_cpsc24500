@@ -12,6 +12,7 @@ public class WordFileReader {
         ArrayList<String> adj = new ArrayList<String>();
         ArrayList<String> adv = new ArrayList<String>();
         ArrayList<String> verb = new ArrayList<String>();
+        ArrayList<String> prep = new ArrayList<String>();
         
         String line = new String();
 
@@ -35,18 +36,19 @@ public class WordFileReader {
                     adv.add(word);
                 } else if (des.equalsIgnoreCase("v")){
                     verb.add(word);
-                }  
+                } else if (des.equalsIgnoreCase("prep")){
+                    prep.add(word);
+                }
             }
             fsc.close();
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
-        } 
-        
+        }  
         dictionary.put("noun", noun);
         dictionary.put("adjetive",adj);
         dictionary.put("adverb",adv);
         dictionary.put("verb", verb);
-
+        dictionary.put("preposition", prep);
         return dictionary;
     }   
 }
