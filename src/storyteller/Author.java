@@ -2,6 +2,7 @@ package storyteller;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.LinkedHashMap;
+//The{<adjective>} <subject> <predicate> {<adverb>} {<preposition> the <object of preposition>}.
 
 public class Author {
     private int adjFreq;
@@ -11,12 +12,19 @@ public class Author {
 
     public Author(LinkedHashMap<String, ArrayList<String>> words) {
         this.words = words;
+        
+        System.out.println(words);
     }
+
     //public static String getWord(){
 
     //}
     
 
+    public Author(int numSen, int adjFreq, int advFreq, int prepFreq) {
+        setAdjFreq(adjFreq);
+
+    }
     public int getAdjFreq() {
         return adjFreq;
     }
@@ -52,6 +60,11 @@ public class Author {
         } else {
             this.prepFreq = prepFreq;
         }   
+    }
+    @Override
+    public String toString(){
+        return "";
+
     }
 
     
