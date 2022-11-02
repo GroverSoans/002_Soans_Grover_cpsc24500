@@ -46,6 +46,8 @@ public class App {
             prepFreq = sc.nextInt();
             sc.nextLine();
             System.out.println("Here it is:");
+            String story = authObj.toString();
+            System.out.println(story);
 
             System.out.print("\nWould you like another story (y or n)? ");
             authObj = new Author(adjFreq,advFreq,prepFreq,numSen);

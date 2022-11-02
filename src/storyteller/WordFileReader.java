@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class WordFileReader {
     
@@ -26,7 +27,6 @@ public class WordFileReader {
                 parts = line.split(" ");
                 word = parts[0];
                 des = parts[1];
-                System.out.printf("%s,    %s\n",word,des);
                 
                 if (des.equalsIgnoreCase("adj")){
                     adj.add(word);
@@ -44,11 +44,14 @@ public class WordFileReader {
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
         }  
-        dictionary.put("noun", noun);
-        dictionary.put("adjetive",adj);
-        dictionary.put("adverb",adv);
-        dictionary.put("verb", verb);
-        dictionary.put("preposition", prep);
+        
+        dictionary.put("n", noun);
+        dictionary.put("adj",adj);
+        dictionary.put("adv",adv);
+        dictionary.put("v", verb);
+        dictionary.put("prep", prep);
+        System.out.println();
+        
         return dictionary;
     }   
 }
