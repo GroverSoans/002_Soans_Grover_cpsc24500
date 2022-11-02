@@ -3,7 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class WordFileReader {
     
@@ -50,7 +50,6 @@ public class WordFileReader {
         dictionary.put("adv",adv);
         dictionary.put("v", verb);
         dictionary.put("prep", prep);
-        System.out.println();
         
         return dictionary;
     }   

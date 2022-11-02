@@ -25,13 +25,13 @@ public class App {
         int numSen;
         String doAgain;
 
-
         printHeading();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the name of the file: ");
         String fileName = sc.nextLine();
         LinkedHashMap <String, ArrayList<String>> words= WordFileReader.fileReader(fileName); 
         Author authObj;
+        
         authObj = new Author(words); 
         
         do{
@@ -45,15 +45,17 @@ public class App {
             System.out.print("  How frequently should prepositions be used? ");
             prepFreq = sc.nextInt();
             sc.nextLine();
-            System.out.println("Here it is:");
-            String story = authObj.toString();
-            System.out.println(story);
-
-            System.out.print("\nWould you like another story (y or n)? ");
             authObj = new Author(adjFreq,advFreq,prepFreq,numSen);
+            System.out.println("Here it is:");
+            
+            System.out.println(authObj.toString());
+
+            System.out.print("Would you like another story (y or n)? ");
             doAgain = sc.nextLine();
 
         }while (doAgain.equalsIgnoreCase("y"));
+        sc.close();
+        System.out.println("\nThank you for using StoryTeller!");
     }
     
 }
