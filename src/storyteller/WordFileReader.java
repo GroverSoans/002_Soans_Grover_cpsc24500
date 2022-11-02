@@ -27,6 +27,8 @@ public class WordFileReader {
                 parts = line.split(" ");
                 word = parts[0];
                 des = parts[1];
+
+                //sorts through file and adds each word to app. array list
                 
                 if (des.equalsIgnoreCase("adj")){
                     adj.add(word);
@@ -44,7 +46,7 @@ public class WordFileReader {
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
         }  
-        
+        //Places each array list in the linked hash map
         dictionary.put("n", noun);
         dictionary.put("adj",adj);
         dictionary.put("adv",adv);

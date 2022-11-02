@@ -13,34 +13,43 @@ public class Author {
     
 
     public Author(LinkedHashMap<String, ArrayList<String>> words) {
+        // constructor for linked hash map
         this.words = words;
     }  
     public LinkedHashMap<String, ArrayList<String>> getWords(){
+        //getter
         return words;
     }
     public void setWords(LinkedHashMap<String, ArrayList<String>> words){
+        //setter
         this.words = words;
     }
 
     public Author(int adjFreq, int advFreq, int prepFreq, int numSen) {
+        //constructor
         setAdjFreq(adjFreq);
         setAdvFreq(advFreq);
         setPrepFreq(prepFreq);
         setNumSen(numSen);
     }
     public int getAdjFreq() {
+        //getter
         return adjFreq;
     }
     public int getAdvFreq() {
+        //getter
         return advFreq;
     }
     public int getPrepFreq() {
+        //getter
         return prepFreq;
     }
     public int getNumSen() {
+        //getter
         return numSen;
     }
     public void setAdjFreq(int adjFreq) {
+        //setter w checks
         if (adjFreq < 0){
             this.adjFreq = 0;
         } else if (adjFreq > 10){
@@ -50,6 +59,7 @@ public class Author {
         }
     }
     public void setAdvFreq(int advFreq) {
+        //setter w checks
         if (advFreq < 0){
             this.advFreq = 0;
         } else if (adjFreq > 10){
@@ -59,6 +69,7 @@ public class Author {
         }
     }
     public void setPrepFreq(int prepFreq) {
+        //setter w checks
         if (prepFreq < 0){
             this.prepFreq = 0;
         } else if (prepFreq > 10){
@@ -71,9 +82,14 @@ public class Author {
         this.numSen = numSen;
     }
     public String getWord(String type){
+        //function retrieves needed word from hash map
         Random ran = new Random();
         String word;
+
+        //temp array list to hold and sort through values
         ArrayList<String> hold = new ArrayList<String>();
+
+        //selects what kind of word and randomly chooses from array list
         if(type.equalsIgnoreCase("n")){
             hold = (words.get("n"));
             word = hold.get(ran.nextInt(hold.size()));
@@ -99,8 +115,7 @@ public class Author {
         }
     }
     public String sentence(){
-        
-        //The{<adjective>} <subject> <predicate> {<adverb>} {<preposition> the <object of preposition>}.
+        //function creates the sentence using the freqGen function
         String sentence = "";
         
         if(freqGen(adjFreq)== true){
@@ -122,12 +137,16 @@ public class Author {
         boolean b = false;
         Random rando = new Random();
         int x;
+
+        //switch case block to controle probability of an event
         
         switch (freq){
             case 0:
+            //0%
                 b = false;
                 break;
             case 1:
+            //10%
                 x = rando.nextInt(100);
                 if(x>90){
                     b = true;
@@ -136,6 +155,8 @@ public class Author {
                 }
                 break;
             case 2:
+            //20%
+
                 x = rando.nextInt(100);
                 if(x>80){
                     b = true;
@@ -144,6 +165,8 @@ public class Author {
                 }
                 break;
             case 3:
+            //30%
+
                 x = rando.nextInt(100);
                 if(x>70){
                     b = true;
@@ -152,6 +175,8 @@ public class Author {
                 }
                 break;
             case 4:
+            //40%
+
                 x = rando.nextInt(100);
                 if(x>60){
                     b = true;
@@ -160,6 +185,7 @@ public class Author {
                 }
                 break; 
             case 5:
+            //50%
                 x = rando.nextInt(100);
                 if(x>50){
                     b = true;
@@ -168,6 +194,7 @@ public class Author {
                 }
                 break;
             case 6:
+            //60%
                 x = rando.nextInt(100);
                 if(x>40){
                     b = true;
@@ -176,6 +203,7 @@ public class Author {
                 }
                 break;
             case 7:
+            //70%
                 x = rando.nextInt(100);
                 if(x>30){
                     b = true;
@@ -184,6 +212,7 @@ public class Author {
                 }
                 break;
             case 8:
+            //80%
                 x = rando.nextInt(100);
                 if(x>20){
                     b = true;
@@ -192,6 +221,7 @@ public class Author {
                 }
                 break;
             case 9:
+            //90%
                 x = rando.nextInt(100);
                 if(x>10){
                     b = true;
@@ -200,6 +230,7 @@ public class Author {
                 }
                 break;
             case 10:
+            //100%
                 b = true;
                 break;                               
         }
@@ -207,20 +238,16 @@ public class Author {
     }
 
     public String story(){
+        //function creates the story by linking sentences under one string
         String story;
         story = "";
         for(int i = 1; i <= numSen; i++){
             story = story + sentence();
         }
-        
         return story;
-
     }
     @Override
-    public String toString(){
-        
+    public String toString(){     
         return story();
-    }
-
-    
+    }    
 }

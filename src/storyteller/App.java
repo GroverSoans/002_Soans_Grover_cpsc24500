@@ -29,10 +29,13 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the name of the file: ");
         String fileName = sc.nextLine();
+
+        //file name is sent to file reader class and returned is a linked hashmap
         LinkedHashMap <String, ArrayList<String>> words= WordFileReader.fileReader(fileName); 
         Author authObj;
         
         authObj = new Author(words); 
+        //created an author object and passed it linked hash map
         
         do{
             System.out.print("\nHow many sentences would you like in your story? ");
@@ -46,8 +49,10 @@ public class App {
             prepFreq = sc.nextInt();
             sc.nextLine();
             authObj = new Author(adjFreq,advFreq,prepFreq,numSen);
+            // passed these variables to author class as an object
             System.out.println("Here it is:");
             
+
             System.out.println(authObj.toString());
 
             System.out.print("Would you like another story (y or n)? ");
