@@ -27,16 +27,15 @@ public class App {
         String fileName;
         int age, wieght;
         ArrayList <String> pets = new ArrayList<>();
-        PetReader reader = new PetReader();
-        PetWriter writer = new PetWriter();
-
-
+        heading();
+        
         int choiceMenu = 0;
         do{
             menu();
             System.out.print("Enter the number of your choice: ");
             try{
                 choiceMenu = sc.nextInt();
+                sc.nextLine();
             }catch(Exception ex){
                 System.out.println("Invalid Input");
             }
@@ -45,33 +44,37 @@ public class App {
                     System.out.print("Enter d for dog, c for cat or f for fish: ");
                     animal = sc.nextLine();
                     System.out.print("Enter name, age, and wieght: ");
-                    name = sc.nextLine();
+                    name = sc.next();
                     age = sc.nextInt();
                     wieght = sc.nextInt();
+                    //System.out.printf("%s, %d, %d",name, age, wieght);
+        
                     break;
                 case 2:
-                    //print pets
+                    PetWriter.printPets();
+                    break;
                 case 3:
                     //save pets to file
-                case 4: 
+                    System.out.print("Enter the name of file to save: ");
+                    fileName = sc.nextLine();
+                    PetWriter.fileWriter(fileName);
+                    System.out.println("The pets were saved to the file");
+                    break;
+                case 4:
+                    //load pets from file 
                     System.out.print("Enter name of file to load: ");
                     fileName = sc.nextLine();
-                    pets = reader.fileReader(fileName);
+                    pets = PetReader.fileReader(fileName);
                     System.out.println("The pets were read from the file.");
                     break;
-                    //load pets from file
                 case 5: 
                     //Simulate pets life
                 case 6:
                     //clear list of pets
-                case 7: 
-                    //exit
-
-
-            }
-          
+            } 
         }while(choiceMenu != 7);
         sc.close();
+        System.out.println("Thank you for using Menagerie. We hope you had fun.");
         
     }
     
