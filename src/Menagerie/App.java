@@ -1,7 +1,7 @@
 package Menagerie;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+///Users/groversoans/CPSC-24500-Homework/MyHomework/temp/animals.txt
 public class App {
     public static void heading(){
         System.out.println("************************************************************");
@@ -23,10 +23,11 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String animal;
+        String type;
         String name;
         String fileName;
         int age, wieght;
-        ArrayList <String> pets = new ArrayList<>();
+        ArrayList <String> pets = new ArrayList<String>();
         heading();
         
         int choiceMenu = 0;
@@ -42,23 +43,31 @@ public class App {
             switch (choiceMenu){
                 case 1: 
                     System.out.print("Enter d for dog, c for cat or f for fish: ");
-                    animal = sc.nextLine();
+                    type = sc.nextLine();
                     System.out.print("Enter name, age, and wieght: ");
                     name = sc.next();
                     age = sc.nextInt();
                     wieght = sc.nextInt();
+                    pets.add(name +"\t" + age + "\t" + wieght);
+                    
                     //System.out.printf("%s, %d, %d",name, age, wieght);
+                    //pets.add(animal);
         
                     break;
                 case 2:
-                    PetWriter.printPets();
+                System.out.println("Here is your list of pets:");
+                    PetWriter.printPets(pets);
                     break;
                 case 3:
                     //save pets to file
                     System.out.print("Enter the name of file to save: ");
                     fileName = sc.nextLine();
-                    PetWriter.fileWriter(fileName);
-                    System.out.println("The pets were saved to the file");
+                    boolean x = PetWriter.fileWriter(fileName,pets);
+                    if(x == true){
+                        System.out.println("The pets were saved to the file");
+                    } else {
+                        System.out.println("An error occured writing to file");
+                    }
                     break;
                 case 4:
                     //load pets from file 
@@ -70,7 +79,9 @@ public class App {
                 case 5: 
                     //Simulate pets life
                 case 6:
-                    //clear list of pets
+                    for(int i = 0; i < pets.size(); i++){
+                        pets.remove(i);
+                    }
             } 
         }while(choiceMenu != 7);
         sc.close();
