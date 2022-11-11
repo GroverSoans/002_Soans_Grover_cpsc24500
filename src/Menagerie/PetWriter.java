@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 
 public class PetWriter {
-    public static void printPets(ArrayList<String> pets){
+    public static void printPets(ArrayList<Pet> pets){
         for (int i = 0; i < pets.size(); i++){
             System.out.println(pets.get(i));
         } 
     } 
-    public static boolean fileWriter(String fileName, ArrayList<String> pets){
+    public static boolean fileWriter(String fileName, ArrayList<Pet> pets){
 
         try {
             PrintWriter pw = new PrintWriter(new BufferedWriter(

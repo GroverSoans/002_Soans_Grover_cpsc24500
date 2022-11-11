@@ -37,9 +37,7 @@ public class Cat extends Pet{
         weight = 0;
     }
     public Cat(String name, double age, double weight){
-        setName(name);
-        setAge(age);
-        setWeight(weight);
+        super(name, age, weight);
     }
     @Override
     public String getType(){

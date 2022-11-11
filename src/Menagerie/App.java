@@ -27,8 +27,11 @@ public class App {
         String name;
         String fileName;
         int age, wieght;
-        ArrayList <String> pets = new ArrayList<String>();
+        ArrayList <Pet> pets = new ArrayList<Pet>();
         heading();
+        Dog d = new Dog();
+        Cat c = new Cat();
+        Fish f = new Fish();
         
         int choiceMenu = 0;
         do{
@@ -44,12 +47,22 @@ public class App {
                 case 1: 
                     System.out.print("Enter d for dog, c for cat or f for fish: ");
                     type = sc.nextLine();
-                    System.out.print("Enter name, age, and wieght: ");
-                    name = sc.next();
-                    age = sc.nextInt();
-                    wieght = sc.nextInt();
-                    pets.add(name +"\t" + age + "\t" + wieght);
-                    
+                    if(type.equalsIgnoreCase("d")){
+                        System.out.print("Enter name, age, and wieght: ");
+                        name = sc.next();
+                        age = sc.nextInt();
+                        wieght = sc.nextInt();
+                    } else if(type.equalsIgnoreCase("c")){
+                        System.out.print("Enter name, age, and wieght: ");
+                        name = sc.next();
+                        age = sc.nextInt();
+                        wieght = sc.nextInt();
+                    } else if (type.equalsIgnoreCase("f")){
+                        System.out.print("Enter name, age, and wieght: ");
+                        name = sc.next();
+                        age = sc.nextInt();
+                        wieght = sc.nextInt();
+                    }
                     //System.out.printf("%s, %d, %d",name, age, wieght);
                     //pets.add(animal);
         
@@ -79,9 +92,8 @@ public class App {
                 case 5: 
                     //Simulate pets life
                 case 6:
-                    for(int i = 0; i < pets.size(); i++){
-                        pets.remove(i);
-                    }
+                    pets.clear();
+                    break;
             } 
         }while(choiceMenu != 7);
         sc.close();

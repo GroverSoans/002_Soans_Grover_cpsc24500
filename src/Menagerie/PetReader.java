@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class PetReader {
     public static ArrayList<String> fileReader(String fileName){
-        ArrayList<String> pets = new ArrayList<String>();
+        ArrayList<Pet> pets = new ArrayList<Pet>();
 
         String line = new String();
         try{   
@@ -18,12 +18,6 @@ public class PetReader {
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
         }  
-
-
-
-
-
-
-        return pets;
+        return null;
     }
 }
