@@ -22,16 +22,13 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String animal;
         String type;
         String name;
         String fileName;
-        int age, wieght;
+        int age;
+        double wieght;
         ArrayList <Pet> pets = new ArrayList<Pet>();
         heading();
-        Dog d = new Dog();
-        Cat c = new Cat();
-        Fish f = new Fish();
         
         int choiceMenu = 0;
         do{
@@ -52,16 +49,22 @@ public class App {
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
+                        Dog d = new Dog(name,age,wieght);
+                        pets.add(d);
                     } else if(type.equalsIgnoreCase("c")){
                         System.out.print("Enter name, age, and wieght: ");
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
+                        Cat c = new Cat(name,age,wieght);
+                        pets.add(c);
                     } else if (type.equalsIgnoreCase("f")){
                         System.out.print("Enter name, age, and wieght: ");
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
+                        Fish f = new Fish(name, age, wieght);
+                        pets.add(f);
                     }
                     //System.out.printf("%s, %d, %d",name, age, wieght);
                     //pets.add(animal);

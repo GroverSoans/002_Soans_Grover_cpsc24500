@@ -5,7 +5,7 @@ import java.util.Random;
 public abstract class Pet {
     Random brain = new Random();
     private String name;
-    private double age;
+    private int age;
     private double weight;
     
     public String getName(){
@@ -18,7 +18,7 @@ public abstract class Pet {
     public double getAge(){
         return age;
     }
-    public void setAge(double age){
+    public void setAge(int age){
         if(age < 0){
             age = 0;
         }else {
@@ -41,7 +41,7 @@ public abstract class Pet {
         age = 0;
         weight = 0;
     }
-    public Pet(String name, double age, double weight){
+    public Pet(String name, int age, double weight){
         setName(name);
         setAge(age);
         setWeight(weight);
@@ -52,6 +52,6 @@ public abstract class Pet {
 
     @Override
     public String toString(){
-        return String.format("%s\t%s\t%f\t%.2f",getType(),name,age,weight);
+        return String.format("%s\t%s\t%d\t%.2f",getType(),name,age,weight);
     }
 }
