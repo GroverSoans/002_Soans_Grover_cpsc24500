@@ -23,10 +23,7 @@ public class PetWriter {
                 return true;
         } catch (Exception ex) {
             System.out.println("An Error occurred writing the file");
-            ex.printStackTrace();
             return false;
         }
-        
-
     }
 }

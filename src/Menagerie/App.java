@@ -29,6 +29,10 @@ public class App {
         double wieght;
         ArrayList <Pet> pets = new ArrayList<Pet>();
         heading();
+        Dog d = new Dog();
+        Cat c = new Cat();
+        Fish f = new Fish();
+        
         
         int choiceMenu = 0;
         do{
@@ -49,21 +53,21 @@ public class App {
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
-                        Dog d = new Dog(name,age,wieght);
+                        d = new Dog(name,age,wieght);
                         pets.add(d);
                     } else if(type.equalsIgnoreCase("c")){
                         System.out.print("Enter name, age, and wieght: ");
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
-                        Cat c = new Cat(name,age,wieght);
+                        c = new Cat(name,age,wieght);
                         pets.add(c);
                     } else if (type.equalsIgnoreCase("f")){
                         System.out.print("Enter name, age, and wieght: ");
                         name = sc.next();
                         age = sc.nextInt();
                         wieght = sc.nextInt();
-                        Fish f = new Fish(name, age, wieght);
+                        f = new Fish(name, age, wieght);
                         pets.add(f);
                     }
                     //System.out.printf("%s, %d, %d",name, age, wieght);
@@ -93,7 +97,11 @@ public class App {
                     System.out.println("The pets were read from the file.");
                     break;
                 case 5: 
-                    //Simulate pets life
+                    //Simulate pets lif
+                    for (int i=0;i<24;i++){
+                        
+
+                    }
                 case 6:
                     pets.clear();
                     break;

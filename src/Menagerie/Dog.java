@@ -15,6 +15,8 @@ public class Dog extends Pet{
     }
     @Override
     public String act(){
+        System.out.println();
         return "";   
-    }    
+    }
+
 }

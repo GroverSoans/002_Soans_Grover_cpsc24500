@@ -1,5 +1,7 @@
 package Menagerie;
 
+import java.util.Random;
+
 public class Cat extends Pet{
     public Cat(){
         super();
@@ -15,5 +17,6 @@ public class Cat extends Pet{
     @Override
     public String act(){
         return "";    
-    }   
+    }
+
 }

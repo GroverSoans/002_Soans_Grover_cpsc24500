@@ -2,12 +2,13 @@ package Menagerie;
 
 import java.util.Random;
 
-public abstract class Pet {
-    Random brain = new Random();
+public abstract class Pet implements Comparable<Pet>{
     private String name;
     private int age;
     private double weight;
-    
+    public int compareTo(){
+        return 0;
+    }
     public String getName(){
         return name;
     }

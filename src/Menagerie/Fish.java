@@ -14,8 +14,8 @@ public class Fish extends Pet{
     }
     @Override
     public String act(){
-        return "";     
-    } 
-    
-    
+        String activity = "k";
+        return String.format("The %s, %s, %s",getType(),getType(),activity);     
+    }
+
 }
