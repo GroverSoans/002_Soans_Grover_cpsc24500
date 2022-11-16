@@ -4,15 +4,19 @@ import java.util.Random;
 
 
 public abstract class Pet implements Comparable<Pet>{
+    //abstract functions that must be implemeted in all extended classes
+    public abstract String act(String name);
+    public abstract String getType();
+    public abstract String author(String name, String act);
 
-    public static Random brain = new Random();
+    //random num gen object
+    public Random brain = new Random();
 
     private String name;
     private int age;
     private double weight;
 
-    
-
+    //gets and sets
     public String getName(){
         return name;
     }
@@ -41,6 +45,7 @@ public abstract class Pet implements Comparable<Pet>{
             this.weight = weight;
         }
     }
+    //defult constructor
     public Pet(){
         name = "";
         age = 0;
@@ -52,16 +57,26 @@ public abstract class Pet implements Comparable<Pet>{
         setWeight(weight);
     }
        
-    public abstract String act(String name);
-    public abstract String getType();
-    public abstract String author(String name, String act);
+
+    //activities that all pets do
+    public String sleep(){
+        return " took a snooze for a little.";
+    }
+    public String eat(){
+        return " had a heart healthy snack";
+    }
+    public String attention(){
+        return " begged for your attention";
+    }
 
     @Override
     public String toString(){
+        //formats the pet object string
         return String.format("%s\t%s\t%d\t%.2f",getType(),name,age,weight);
     }
     @Override
     public int compareTo(Pet pet) {
+        //compares pet objects by name and sorts in alphabetical order
         return this.name.compareToIgnoreCase(pet.getName());
     }
 }

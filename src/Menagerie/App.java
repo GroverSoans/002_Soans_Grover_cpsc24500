@@ -31,15 +31,15 @@ public class App {
         double wieght;
         ArrayList <Pet> pets = new ArrayList<Pet>();
         heading();
+        //animal objects
         Dog d = new Dog();
         Cat c = new Cat();
         Fish f = new Fish();
-        
-        
         int choiceMenu = 0;
         do{
             menu();
             System.out.print("Enter the number of your choice: ");
+            //try catch to insure valid input
             try{
                 choiceMenu = sc.nextInt();
                 sc.nextLine();
@@ -49,12 +49,14 @@ public class App {
             }
             switch (choiceMenu){
                 case 1: 
+                    //case 1 = adding a pet pet object to array list
                     System.out.print("Enter d for dog, c for cat or f for fish: ");
                     type = sc.nextLine();
                     System.out.print("Enter name, age, and wieght: ");
                     name = sc.next();
                     age = sc.nextInt();
                     wieght = sc.nextInt();
+                    //determines what class needs to be called and passes needed info
                     if(type.equalsIgnoreCase("d")){
                         d = new Dog(name,age,wieght);
                         pets.add(d);
@@ -67,12 +69,13 @@ public class App {
                     }
                     break;
                 case 2:
+                //case 2 = sort and print array list of pet objects
                 Collections.sort(pets);
                 System.out.println("Here is your list of pets:");
                     PetWriter.printPets(pets);
                     break;
                 case 3:
-                    //save pets to file
+                    //case 3 = sort and save pets to file
                     Collections.sort(pets);
                     System.out.print("\nEnter the name of file to save: ");
                     fileName = sc.nextLine();
@@ -84,15 +87,15 @@ public class App {
                     }
                     break;
                 case 4:
-                    //load pets from file 
+                    //case 4 = load pets from file 
                     System.out.print("\nEnter name of file to load: ");
                     fileName = sc.nextLine();
                     pets = PetReader.fileReader(fileName);
                     System.out.println("The pets were read from the file.");
                     break;
                 case 5: 
+                    //case 5 = Simulate pets life
                     String sim;
-                    //Simulate pets life
                     System.out.println("Here is a simulation of a day in the life of your pets: ");
                     for (int i=0;i<24;i++){
                         System.out.printf("\nHour %d\n",i+1);
@@ -114,6 +117,7 @@ public class App {
                     break;
 
                 case 6:
+                    //case 6 = clears arraylist of pet objects
                     pets.clear();
                     break;
             } 

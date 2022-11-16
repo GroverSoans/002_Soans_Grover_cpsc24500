@@ -6,8 +6,8 @@ import java.util.Collections;
 
 public class PetReader {
     public static ArrayList<Pet> fileReader(String fileName){
-        ArrayList<Pet> pets = new ArrayList<Pet>();
-        ArrayList<String> temp = new ArrayList< String>();
+        ArrayList<Pet> pets = new ArrayList<Pet>(); //arraylist of pet object
+        ArrayList<String> temp = new ArrayList< String>(); //arraylist of pet strings 
         String parts[]; 
         String type;
         String name;
@@ -21,6 +21,7 @@ public class PetReader {
 
         String line = new String();
         try{   
+            //reads in file as a string and stores in a temp arraylist
             Scanner fsc = new Scanner(new File(fileName));
             while (fsc.hasNextLine()){
                 line = fsc.nextLine().trim();
@@ -32,6 +33,10 @@ public class PetReader {
         } 
 
         for (int i = 0; i < temp.size(); i++){
+
+            //converts temp array list into an object arraylist by determining what each animal is
+            // and creating the object.
+
             line = temp.get(i);
             parts = line.split("\t");
             type = parts[0];
@@ -47,6 +52,7 @@ public class PetReader {
                 pets.add(f = new Fish(name,age,wieght));
             }     
         }
+        //sorts the array before being sent back to app
         Collections.sort(pets);
         return pets;
     }
