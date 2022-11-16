@@ -2,6 +2,7 @@ package Menagerie;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PetReader {
     public static ArrayList<Pet> fileReader(String fileName){
@@ -29,7 +30,9 @@ public class PetReader {
         }catch(Exception ex){
             System.out.println("A problem occured reading the file");
         } 
+
         for (int i = 0; i < temp.size(); i++){
+            line = temp.get(i);
             parts = line.split("\t");
             type = parts[0];
             name = parts[1];
@@ -40,10 +43,11 @@ public class PetReader {
                 pets.add(d = new Dog(name,age,wieght));
             } else if(type.equalsIgnoreCase("Cat")){
                 pets.add(c = new Cat(name,age,wieght));
-            } else {
+            } else if(type.equalsIgnoreCase("Fish")){
                 pets.add(f = new Fish(name,age,wieght));
             }     
         }
+        Collections.sort(pets);
         return pets;
     }
 }

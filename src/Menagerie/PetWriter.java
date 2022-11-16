@@ -22,7 +22,6 @@ public class PetWriter {
                 pw.close();
                 return true;
         } catch (Exception ex) {
-            System.out.println("An Error occurred writing the file");
             return false;
         }
     }

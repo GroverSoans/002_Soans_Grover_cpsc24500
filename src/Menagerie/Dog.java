@@ -1,6 +1,10 @@
 package Menagerie;
 
+
 public class Dog extends Pet{
+    private int sleep = 14;
+    private int eat = 3;
+    private int attention = 7;
     public Dog(){
         super();
     }
@@ -18,5 +22,6 @@ public class Dog extends Pet{
         System.out.println();
         return "";   
     }
+
 
 }

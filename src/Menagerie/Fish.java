@@ -1,6 +1,11 @@
 package Menagerie;
 
 public class Fish extends Pet{
+    private int sleep = 14;
+    private int eat = 3;
+    private int attention = 7;
+
+
     public Fish(){
         super();
     }
@@ -14,8 +19,7 @@ public class Fish extends Pet{
     }
     @Override
     public String act(){
-        String activity = "k";
-        return String.format("The %s, %s, %s",getType(),getType(),activity);     
+        return "";     
     }
 
 }

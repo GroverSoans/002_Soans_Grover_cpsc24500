@@ -1,14 +1,14 @@
 package Menagerie;
 
+
 import java.util.Random;
 
 public abstract class Pet implements Comparable<Pet>{
     private String name;
     private int age;
     private double weight;
-    public int compareTo(){
-        return 0;
-    }
+    
+
     public String getName(){
         return name;
     }
@@ -54,5 +54,9 @@ public abstract class Pet implements Comparable<Pet>{
     @Override
     public String toString(){
         return String.format("%s\t%s\t%d\t%.2f",getType(),name,age,weight);
+    }
+    @Override
+    public int compareTo(Pet pet) {
+        return this.name.compareToIgnoreCase(pet.getName());
     }
 }

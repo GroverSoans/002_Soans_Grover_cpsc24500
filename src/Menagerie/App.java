@@ -1,7 +1,10 @@
 package Menagerie;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 ///Users/groversoans/CPSC-24500-Homework/MyHomework/temp/animals.txt
+///Users/groversoans/Downloads/animal.txt
+
 public class App {
     public static void heading(){
         System.out.println("************************************************************");
@@ -48,38 +51,29 @@ public class App {
                 case 1: 
                     System.out.print("Enter d for dog, c for cat or f for fish: ");
                     type = sc.nextLine();
+                    System.out.print("Enter name, age, and wieght: ");
+                    name = sc.next();
+                    age = sc.nextInt();
+                    wieght = sc.nextInt();
                     if(type.equalsIgnoreCase("d")){
-                        System.out.print("Enter name, age, and wieght: ");
-                        name = sc.next();
-                        age = sc.nextInt();
-                        wieght = sc.nextInt();
                         d = new Dog(name,age,wieght);
                         pets.add(d);
                     } else if(type.equalsIgnoreCase("c")){
-                        System.out.print("Enter name, age, and wieght: ");
-                        name = sc.next();
-                        age = sc.nextInt();
-                        wieght = sc.nextInt();
                         c = new Cat(name,age,wieght);
                         pets.add(c);
                     } else if (type.equalsIgnoreCase("f")){
-                        System.out.print("Enter name, age, and wieght: ");
-                        name = sc.next();
-                        age = sc.nextInt();
-                        wieght = sc.nextInt();
                         f = new Fish(name, age, wieght);
                         pets.add(f);
                     }
-                    //System.out.printf("%s, %d, %d",name, age, wieght);
-                    //pets.add(animal);
-        
                     break;
                 case 2:
+                Collections.sort(pets);
                 System.out.println("Here is your list of pets:");
                     PetWriter.printPets(pets);
                     break;
                 case 3:
                     //save pets to file
+                    Collections.sort(pets);
                     System.out.print("Enter the name of file to save: ");
                     fileName = sc.nextLine();
                     boolean x = PetWriter.fileWriter(fileName,pets);
@@ -94,6 +88,7 @@ public class App {
                     System.out.print("Enter name of file to load: ");
                     fileName = sc.nextLine();
                     pets = PetReader.fileReader(fileName);
+                    Collections.sort(pets);
                     System.out.println("The pets were read from the file.");
                     break;
                 case 5: 
