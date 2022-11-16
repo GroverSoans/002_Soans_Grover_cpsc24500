@@ -1,12 +1,16 @@
 package Menagerie;
-
-
 import java.util.Random;
+    
+
 
 public abstract class Pet implements Comparable<Pet>{
+
+    public static Random brain = new Random();
+
     private String name;
     private int age;
     private double weight;
+
     
 
     public String getName(){
@@ -48,8 +52,9 @@ public abstract class Pet implements Comparable<Pet>{
         setWeight(weight);
     }
        
-    public abstract String act();
+    public abstract String act(String name);
     public abstract String getType();
+    public abstract String author(String name, String act);
 
     @Override
     public String toString(){
