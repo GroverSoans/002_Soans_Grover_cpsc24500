@@ -3,8 +3,8 @@ package Menagerie;
 
 public class Dog extends Pet{
     //cut off values for each defult activity
-    private int sleep = 13;
-    private int eat = 17;
+    private int sleep = 12;
+    private int eat = 16;
     private int attention = 24;
 
     //constructor to form dog objects
