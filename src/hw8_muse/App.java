@@ -17,8 +17,18 @@ public class App {
         System.out.println("\nWhat would you like to do?");
         System.out.println("1. Create a new post");
         System.out.println("2. Comment on a post");
-        System.out.println("3. Quit");
+        System.out.println("3. Read posts from a file");
+        System.out.println("4. Write posts to a file");
+        System.out.println("5. List all posts to screen");
+        System.out.println("6. Clear posts");
+        System.out.println("7. Quit");
         System.out.print("Enter the number of your choice: ");
+    }
+    public static void showFileMenu(){
+        System.out.println("\nWhat kind of file?");
+        System.out.println("1. Text");
+        System.out.println("2. Binary");
+        System.out.println("3. XML");
     }
     public static void showNewPostMenu() {
         System.out.println("\nWhat would you like to a post?");
@@ -68,7 +78,8 @@ public class App {
     }
     public static void main(String[] args) {
         printHeading();
-        int choice, artType;
+        int choice, fileChoice, artType;
+        String fileName;
         Scanner sc = new Scanner(System.in);
         LinkedHashMap<String,String> responses;
         ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();
@@ -88,6 +99,7 @@ public class App {
                 artType = sc.nextInt();
                 sc.nextLine();
                 if (artType == 1) {
+                    //gathers responces and creates an object and stores in arrayL
                     responses = getCommonRecordedInputs(sc);
                     System.out.print("Enter beats per minute: ");
                     responses.put("bpm",sc.nextLine());
@@ -96,6 +108,7 @@ public class App {
                     song = new Song(responses);
                     works.add(song);
                 } else if (artType == 2) {
+                    //creats obj of movie
                     responses = getCommonRecordedInputs(sc);
                     System.out.print("Enter framerate: ");
                     responses.put("framerate", sc.nextLine());
@@ -104,12 +117,14 @@ public class App {
                     movie = new Movie(responses);
                     works.add(movie);
                 } else if (artType == 3) {
+                    //creates object of poem
                     responses = getCommonWrittenInputs(sc);
                     System.out.print("Enter meter: ");
                     responses.put("meter",sc.nextLine());
                     poem = new Poem(responses);
                     works.add(poem);
                 } else if (artType == 4) {
+                    //creates object of story
                     responses = getCommonWrittenInputs(sc);
                     System.out.print("Describe the setting: ");
                     responses.put("setting", sc.nextLine());
@@ -134,8 +149,37 @@ public class App {
                 theWork.addComment(comment);
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
+            } else if (choice == 3){
+                showFileMenu();
+                fileChoice = sc.nextInt();
+                System.out.print("\nEnter the name of the file: ");
+                fileName= sc.nextLine();
+                if (fileChoice == 1){
+                    //text
+                } else if (fileChoice == 2){
+                    //binary
+                } else if (fileChoice == 3){
+                    //xml
+                }
+            } else if (choice == 4){
+                //write posts from file
+                showFileMenu();
+                fileChoice = sc.nextInt();
+                System.out.print("\nEnter the name of the file: ");
+                fileName= sc.nextLine();
+                if (fileChoice == 1){
+                    //text
+                } else if (fileChoice == 2){
+                    //binary
+                } else if (fileChoice == 3){
+                    //xml
+                }
+            } else if (choice == 5) {
+                //prints posts
+            } else if (choice == 6){
+                //clears posts
             }
-        } while (choice != 3);
+        } while (choice != 7);
         System.out.println();
         System.out.println("Thank you for using MUSE. Be inspired to inspire everyone everywhere always.");
     }
