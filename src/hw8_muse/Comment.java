@@ -1,6 +1,8 @@
 package hw8_muse;
 
-public class Comment {
+import java.io.Serializable;
+
+public class Comment implements Serializable{
     private String postedBy;
     private String dateTime;
     private String content;

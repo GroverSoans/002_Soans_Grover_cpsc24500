@@ -1,8 +1,9 @@
 package hw8_muse;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
-public class App {
+public class App implements Serializable{
     public static void printHeading() {
         System.out.println("********************************************************************************");
         System.out.println("                        MUSE Social Media Platform, v1.0");
@@ -29,6 +30,13 @@ public class App {
         System.out.println("1. Text");
         System.out.println("2. Binary");
         System.out.println("3. XML");
+    }
+    public static void showFileSuccess(boolean working){
+        if (working == true){
+            System.out.println("The posts were successfully written");
+        } else if (working == false){
+            System.out.println("An error occured.");
+        }
     }
     public static void showNewPostMenu() {
         System.out.println("\nWhat would you like to a post?");
@@ -76,6 +84,8 @@ public class App {
             count = count + 1;
         }
     }
+    ///Users/groversoans/Downloads/muse1.bin
+    ///Users/groversoans/Downloads/temps.xml
     public static void main(String[] args) {
         printHeading();
         int choice, fileChoice, artType;
@@ -90,6 +100,7 @@ public class App {
         int workNum;
         String commenterName, commenterDate, commentText;
         Comment comment;
+        boolean working;
         ArtisticWork theWork;  // the work chosen to comment on
         do {
             showMainMenu();
@@ -149,35 +160,42 @@ public class App {
                 theWork.addComment(comment);
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
-            } else if (choice == 3){
+            } else if (choice == 3){//reads from file
                 showFileMenu();
+                System.out.print("\nEnter the number of your choice: ");
                 fileChoice = sc.nextInt();
+                sc.nextLine();
                 System.out.print("\nEnter the name of the file: ");
+                
                 fileName= sc.nextLine();
                 if (fileChoice == 1){
                     //text
                 } else if (fileChoice == 2){
-                    //binary
+                    works = WorksReader.readFromBinary(fileName);
                 } else if (fileChoice == 3){
-                    //xml
+                    works = WorksReader.readFromXML(fileName);
                 }
             } else if (choice == 4){
-                //write posts from file
+                //write posts to file
                 showFileMenu();
+                System.out.print("Enter the number of your choice: ");
                 fileChoice = sc.nextInt();
-                System.out.print("\nEnter the name of the file: ");
+                sc.nextLine();
+                System.out.print("Enter the name of the file: ");
                 fileName= sc.nextLine();
                 if (fileChoice == 1){
                     //text
                 } else if (fileChoice == 2){
-                    //binary
+                    working = WorksWriter.writeToBinary(works, fileName);
+                    showFileSuccess(working);
                 } else if (fileChoice == 3){
-                    //xml
+                    working = WorksWriter.writeToXML(works, fileName);
+                    showFileSuccess(working);
                 }
             } else if (choice == 5) {
-                //prints posts
+                WorksWriter.writeToScreen(works); //done
             } else if (choice == 6){
-                //clears posts
+                works.clear(); // done
             }
         } while (choice != 7);
         System.out.println();

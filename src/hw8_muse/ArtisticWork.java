@@ -1,7 +1,8 @@
 package hw8_muse;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-public abstract class ArtisticWork {
+public abstract class ArtisticWork implements Serializable {
     private String creator;
     private String date;
     private String title;
