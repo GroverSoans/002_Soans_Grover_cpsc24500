@@ -158,6 +158,7 @@ public class App implements Serializable{
                 commentText = sc.nextLine();
                 comment = new Comment(commenterName,commenterDate,commentText);
                 theWork.addComment(comment);
+                works.set(workNum, theWork);
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
             } else if (choice == 3){//reads from file
