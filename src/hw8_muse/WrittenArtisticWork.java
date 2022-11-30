@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 public abstract class WrittenArtisticWork extends ArtisticWork {
     private String language;
     private String text;  // the actual content
+    //gets and sets for language and text
     public String getLanguage() {
         return language;
     }
@@ -33,7 +34,11 @@ public abstract class WrittenArtisticWork extends ArtisticWork {
         setText(settings.get("text"));
     }
     @Override
-    public String getGeneralInfoString() {
+    public String tabGenInfo(){//tab delimited string
+        return String.format("%s\t%s\t%s",super.tabGenInfo(),language,text);
+    }
+    @Override
+    public String getGeneralInfoString() {//gen info string
         return String.format("%s\nLanguage: %s",super.getGeneralInfoString(),language);
     }
     @Override

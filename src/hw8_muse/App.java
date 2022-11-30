@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 public class App implements Serializable{
-    public static void printHeading() {
+    public static void printHeading() {//welcome banner
         System.out.println("********************************************************************************");
         System.out.println("                        MUSE Social Media Platform, v1.0");
         System.out.println("********************************************************************************");
@@ -14,7 +14,7 @@ public class App implements Serializable{
         System.out.println("ideas. Post your own original works and comment on what others are doing. Only");
         System.out.println("one rule: be kind!");
     }
-    public static void showMainMenu() {
+    public static void showMainMenu() { //menu
         System.out.println("\nWhat would you like to do?");
         System.out.println("1. Create a new post");
         System.out.println("2. Comment on a post");
@@ -25,20 +25,20 @@ public class App implements Serializable{
         System.out.println("7. Quit");
         System.out.print("Enter the number of your choice: ");
     }
-    public static void showFileMenu(){
+    public static void showFileMenu(){ // file menu
         System.out.println("\nWhat kind of file?");
         System.out.println("1. Text");
         System.out.println("2. Binary");
         System.out.println("3. XML");
     }
-    public static void showFileSuccess(boolean working){
+    public static void showFileSuccess(boolean working){ // file success
         if (working == true){
             System.out.println("The posts were successfully written");
         } else if (working == false){
             System.out.println("An error occured.");
         }
     }
-    public static void showNewPostMenu() {
+    public static void showNewPostMenu() { //new posts menu
         System.out.println("\nWhat would you like to a post?");
         System.out.println("1. Song");
         System.out.println("2. Movie");
@@ -46,7 +46,7 @@ public class App implements Serializable{
         System.out.println("4. Short story");
         System.out.print("Enter the number of your choice: ");
     }
-    public static LinkedHashMap<String,String> getCommonInputs(Scanner sc) {
+    public static LinkedHashMap<String,String> getCommonInputs(Scanner sc) { //hashmap to store common results
         LinkedHashMap<String,String> result = new LinkedHashMap<String,String>();
         System.out.print("Enter the name of the creator: ");
         result.put("creator", sc.nextLine());
@@ -58,7 +58,7 @@ public class App implements Serializable{
         result.put("description", sc.nextLine()); 
         return result;
     }
-    public static LinkedHashMap<String,String> getCommonRecordedInputs(Scanner sc) {
+    public static LinkedHashMap<String,String> getCommonRecordedInputs(Scanner sc) { //hashmap to store recorded imputs
         LinkedHashMap<String,String> result = getCommonInputs(sc);
         System.out.print("Enter duration: ");
         result.put("duration", sc.nextLine());
@@ -68,7 +68,7 @@ public class App implements Serializable{
         result.put("filesize", sc.nextLine());
         return result;
     }
-    public static LinkedHashMap<String,String> getCommonWrittenInputs(Scanner sc) {
+    public static LinkedHashMap<String,String> getCommonWrittenInputs(Scanner sc) { //hashmap to store written inputs
         LinkedHashMap<String,String> result = getCommonInputs(sc);
         System.out.print("Enter language: ");
         result.put("language", sc.nextLine());
@@ -76,7 +76,7 @@ public class App implements Serializable{
         result.put("text", sc.nextLine());
         return result;
     }
-    public static void listWorks(ArrayList<ArtisticWork> works) {
+    public static void listWorks(ArrayList<ArtisticWork> works) { //lists works to write comments on
         System.out.println("Here is what has been posted to MUSE: ");
         int count = 1;
         for (ArtisticWork work : works) {
@@ -110,13 +110,13 @@ public class App implements Serializable{
                 artType = sc.nextInt();
                 sc.nextLine();
                 if (artType == 1) {
-                    //gathers responces and creates an object and stores in arrayL
+                    //gathers responces and creates an object and stores in hashmap
                     responses = getCommonRecordedInputs(sc);
                     System.out.print("Enter beats per minute: ");
                     responses.put("bpm",sc.nextLine());
                     System.out.print("Enter the key: ");
                     responses.put("key", sc.nextLine());
-                    song = new Song(responses);
+                    song = new Song(responses); //song object created
                     works.add(song);
                 } else if (artType == 2) {
                     //creats obj of movie
@@ -125,14 +125,14 @@ public class App implements Serializable{
                     responses.put("framerate", sc.nextLine());
                     System.out.print("Enter resolution: ");
                     responses.put("resolution", sc.nextLine());
-                    movie = new Movie(responses);
+                    movie = new Movie(responses); //movie object created
                     works.add(movie);
                 } else if (artType == 3) {
                     //creates object of poem
                     responses = getCommonWrittenInputs(sc);
                     System.out.print("Enter meter: ");
                     responses.put("meter",sc.nextLine());
-                    poem = new Poem(responses);
+                    poem = new Poem(responses); // poem object created
                     works.add(poem);
                 } else if (artType == 4) {
                     //creates object of story
@@ -140,9 +140,9 @@ public class App implements Serializable{
                     System.out.print("Describe the setting: ");
                     responses.put("setting", sc.nextLine());
                     story = new ShortStory(responses);
-                    works.add(story);
+                    works.add(story); //short story object created
                 }
-            } else if (choice == 2) {
+            } else if (choice == 2) { //lists works to show what can be commented on
                 listWorks(works);
                 System.out.print("Which one do you want to comment on? ");
                 workNum = sc.nextInt() - 1;
@@ -156,11 +156,11 @@ public class App implements Serializable{
                 commenterDate = sc.nextLine();
                 System.out.print("Enter your comment: ");
                 commentText = sc.nextLine();
-                comment = new Comment(commenterName,commenterDate,commentText);
+                comment = new Comment(commenterName,commenterDate,commentText); //new comment object
                 theWork.addComment(comment);
                 works.set(workNum, theWork);
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
-                System.out.println(theWork);
+                System.out.println(theWork); //shows work and comments
             } else if (choice == 3){//reads from file
                 showFileMenu();
                 System.out.print("\nEnter the number of your choice: ");
@@ -170,7 +170,7 @@ public class App implements Serializable{
                 
                 fileName= sc.nextLine();
                 if (fileChoice == 1){
-                    //text
+                    works = WorksReader.readFromText(fileName);
                 } else if (fileChoice == 2){
                     works = WorksReader.readFromBinary(fileName);
                 } else if (fileChoice == 3){
@@ -185,7 +185,8 @@ public class App implements Serializable{
                 System.out.print("Enter the name of the file: ");
                 fileName= sc.nextLine();
                 if (fileChoice == 1){
-                    //text
+                    working = WorksWriter.writeToText(works, fileName);
+                    showFileSuccess(working);
                 } else if (fileChoice == 2){
                     working = WorksWriter.writeToBinary(works, fileName);
                     showFileSuccess(working);
@@ -194,9 +195,9 @@ public class App implements Serializable{
                     showFileSuccess(working);
                 }
             } else if (choice == 5) {
-                WorksWriter.writeToScreen(works); //done
+                WorksWriter.writeToScreen(works); // writes to screen
             } else if (choice == 6){
-                works.clear(); // done
+                works.clear(); // clears list
             }
         } while (choice != 7);
         System.out.println();

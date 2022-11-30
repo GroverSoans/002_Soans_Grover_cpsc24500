@@ -3,6 +3,8 @@ import java.util.LinkedHashMap;
 public class Song extends RecordedArtisticWork {
     private int bpm;  // beats per minute
     private String key;
+
+    //gets and sets for bpm and key
     public int getBPM() {
         return bpm;
     }
@@ -19,6 +21,7 @@ public class Song extends RecordedArtisticWork {
     public void setKey(String key) {
         this.key = key;   // could add checking for valid key
     }
+    //defult construct
     public Song() {
         key = "Cmaj";
         bpm = 120;
@@ -42,4 +45,9 @@ public class Song extends RecordedArtisticWork {
     public String getSpecificInfoString() {
         return String.format("%d bpm, key of %s", bpm,key);
     }
+    @Override
+    public String tabSpecInfo(){//tab delimited string
+        return String.format("%d\t%s",bpm,key);
+    }
+  
 }

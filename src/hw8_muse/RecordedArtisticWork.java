@@ -4,6 +4,7 @@ public abstract class RecordedArtisticWork extends ArtisticWork {
     private int duration; // in seconds
     private String fileName;
     private double fileSize;
+    //gets and sets for duration filename and filesize
     public int getDuration() {
         return duration;
     }
@@ -49,7 +50,11 @@ public abstract class RecordedArtisticWork extends ArtisticWork {
         setFileSize(Double.parseDouble(settings.get("filesize")));
     }
     @Override
-    public String getGeneralInfoString() {
+    public String tabGenInfo(){//tab del string
+        return String.format("%s\t%d\t%s\t%.2f\t",super.tabGenInfo(),duration,fileName,fileSize);
+    }
+    @Override
+    public String getGeneralInfoString() {//gen info for recorded art
         return String.format("%s\nDuration: %d sec; Filename: %s (%.2f MB)", super.getGeneralInfoString(),
                 duration, fileName, fileSize);
     }

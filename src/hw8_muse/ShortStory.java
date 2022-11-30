@@ -4,6 +4,8 @@ import java.util.LinkedHashMap;
 
 public class ShortStory extends WrittenArtisticWork {
     public String setting;
+
+    //get and set setting
     public String getSetting() {
         return setting;
     }
@@ -27,7 +29,12 @@ public class ShortStory extends WrittenArtisticWork {
         return "short story";
     }
     @Override
-    public String getSpecificInfoString() {
+    public String getSpecificInfoString() { 
         return String.format("Setting: %s\n%s", setting, super.getSpecificInfoString());
     }
+    @Override
+    public String tabSpecInfo(){//tab delimited string
+        return String.format("\t%s",setting);
+    }
+  
 }

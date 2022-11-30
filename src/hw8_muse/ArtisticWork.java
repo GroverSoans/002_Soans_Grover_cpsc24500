@@ -8,6 +8,7 @@ public abstract class ArtisticWork implements Serializable {
     private String title;
     private String description;
     private ArrayList<Comment> comments;
+    //gets and sets for private variables
     public String getCreator() {
         return creator;
     }
@@ -53,6 +54,7 @@ public abstract class ArtisticWork implements Serializable {
     public String getGeneralInfoString() {
         return String.format("%s, a %s by %s, posted on %s",title,getType(),creator,date);
     }
+    public abstract String tabSpecInfo();
     public abstract String getSpecificInfoString();
     public String getCommentsAsString() {
         String result = "";
@@ -63,6 +65,13 @@ public abstract class ArtisticWork implements Serializable {
             return "No comments";
         }
         return result;
+    }
+
+    public String tabGenInfo(){//combined of all tab del strings
+        return String.format("%s\t%s\t%s\t%s\t%s\t",getType(),title,creator,date, description);
+    }
+    public String toTabString(){// called on to print to text file
+        return tabGenInfo() + tabSpecInfo();
     }
     @Override
     public String toString() {
@@ -77,5 +86,5 @@ public abstract class ArtisticWork implements Serializable {
     }
     public String getShortString() {
         return String.format("\"%s\", a %s by %s", title, getType(), creator);
-    }
+    }   
 }
