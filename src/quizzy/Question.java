@@ -1,5 +1,6 @@
 package quizzy;
-
+//class creats question objects 
+//contains gets sets and constructors
 public class Question {
     private String question;
     private String choice;
@@ -7,7 +8,7 @@ public class Question {
 
     public Question(){
         question = "";
-        choice = "";
+        choice = null;
         answer = "";
     }
     public Question(String question, String choice, String answer){

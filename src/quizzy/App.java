@@ -15,8 +15,13 @@ package quizzy;
  * 13.) A
  * 14.) A
  */
+
+ //incharge of opening the window
 public class App {
     public static void main(String[] args) {
+        Question question = new Question();
+        MenuFrame frm = new MenuFrame(question);
+        frm.setVisible(true);
         
     }
     

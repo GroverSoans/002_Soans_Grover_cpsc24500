@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class QuestionReader {
     public static boolean readFromText(File f){
         try {
+            //reads from text file and creates question objects
             Quiz quiz;
             String question, ans = "";
             ArrayList <Question> questions = new ArrayList<Question>();
@@ -33,6 +34,7 @@ public class QuestionReader {
                     ans = parts[5];
                 }
                 q = new Question(question,choices,ans);
+                //all question objects are store in a array list
                 questions.add(q);     
             }
             quiz = new Quiz(questions);

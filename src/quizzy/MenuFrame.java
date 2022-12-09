@@ -23,6 +23,7 @@ public class MenuFrame extends JFrame{
     private Question question;
     private JTextArea quiz;
     public void setUpMenu(){
+        //sets up menu
         Quiz q = null;
         JMenuBar mbar = new JMenuBar();
         setJMenuBar(mbar);
@@ -30,26 +31,29 @@ public class MenuFrame extends JFrame{
         JMenu mnuQuiz = new JMenu ("Quiz");
         mbar.add(mnuFile);
         mbar.add(mnuQuiz);
+        //"should" start quiz when clicked
         JMenuItem miStart = new JMenuItem("Start");
         miStart.addActionListener(
             new ActionListener() {
                 public void actionPerformed(ActionEvent e){
-                    q.quizQs(true);
-                    
+                    String ques = q.quizQ(true);
+                    quiz.setText(ques);
                     repaint();
                 }     
             }
         );
+        //"should" stop the quiz and return user a score
         JMenuItem miStop = new JMenuItem("Stop");
         miStop.addActionListener(
             new ActionListener() {
                 public void actionPerformed(ActionEvent e){
-                    double x = q.quizQs(false);
+                    String x = q.quizQ(false);
                     JOptionPane.showMessageDialog(null, "You got a score ");
 
                 } 
             }
         );
+        //loads file from file window pane
         JMenuItem miload = new JMenuItem("Load File");
         miload.addActionListener(
             new ActionListener() {
@@ -74,17 +78,20 @@ public class MenuFrame extends JFrame{
         
     }   
     public void setupGUI(){
+        //title of the window
         setTitle("Object Oriented Quiz Tool");
         setBounds(100,100,600,400);
         setUpMenu();
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
+        //prints welcome message
         quiz = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n "
         + "Select File >> Load Questions to begin.");
         quiz.setEditable(false);
         c.add(quiz,BorderLayout.CENTER);
         JPanel panSouth = new JPanel();
         panSouth.setLayout(new FlowLayout());
+        //formated bottom of window with two buttons and a text feild
         JLabel lblEnter = new JLabel("Your Answer");
         JTextField txtEnter = new JTextField(5);
         JButton btnSubmit = new JButton("Submit Answer");

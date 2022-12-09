@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Quiz {
+    //contains the arraylist of all question objects
     private ArrayList <Question> questions;
     public void setQuestions(ArrayList questions){
         this.questions = questions;
@@ -17,8 +18,8 @@ public class Quiz {
     public Quiz(ArrayList questions){
         setQuestions(questions);
     }
-    
-    public double quizQs(boolean y){
+    //function was supposed to be in charge of returning the questions and choices and keeping hold of the score
+    public String quizQ (boolean y){
         Question ques;
         Random rnd = new Random();
         double score = 0;
@@ -31,12 +32,9 @@ public class Quiz {
             int sucore = 0;
             q = questions.get(x).getQuestion();
             c = questions.get(x).getChoice();
-
-            
-
-    
+            return String.format("%s\n%s",q,c);
         } while ( y == true);
-        return score;
+            
     }   
     public String toString(String q, String c){
         return String.format("%s\n%s",q,c);
