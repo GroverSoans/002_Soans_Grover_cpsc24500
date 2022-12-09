@@ -22,16 +22,16 @@ public class Quiz {
         Question ques;
         Random rnd = new Random();
         double score = 0;
-        int x = rnd.nextInt(questions.size());
         String q,a;
         String c;
 
         do {
+            int x = rnd.nextInt(questions.size());
             int counter = 0;
             int sucore = 0;
             q = questions.get(x).getQuestion();
             c = questions.get(x).getChoice();
-            
+
             
 
     
